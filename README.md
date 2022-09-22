@@ -1,7 +1,6 @@
 # Weather-Dashboard.6
 
-[
-](https://giselamarque.github.io/Weather-Dashboard.6/)
+(https://giselamarque.github.io/Weather-Dashboard.6/)
 
 <img width="900" alt="Screen Shot 2022-09-22 at 1 12 37 PM" src="https://user-images.githubusercontent.com/110875368/191821213-c51cd67f-0959-493b-9c26-06ed75e51e2c.png">
 
