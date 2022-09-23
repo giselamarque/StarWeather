@@ -140,7 +140,7 @@ var displayUvIndex = function(index){
 
     uvIndexEl.appendChild(uvIndexValue);
 
-    //append index to current weather
+    // Append to current weather
     weatherContainerEl.appendChild(uvIndexEl);
 }
 
