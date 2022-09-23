@@ -3,7 +3,7 @@
 var getCityWeather = function(city){
     
     var apiKey = "cd6ebd3bf1014520af94c5286636bc87"
-    var apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`
+    var apiURL = `https://api.openweathermap.org/data/2.5/onecall?q=${city}&units=imperial&appid=${apiKey}`
 
     fetch(apiURL)
     
