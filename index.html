@@ -24,26 +24,34 @@
     <main class="container-fluid">
         <div class = "row">
             
-            <div class="col-12 col-md-3 p-2 search-column">
-                
-                <form class = "border p-2" id = "city-search-form">
-                    <h4>Search City</h2>
-                    <input id="city" type = "text" autofocus = "true" class = "form-input"/>
-                    <button class = "btn btn-primary" type = "submit">Search</button>
-                </form>
-                <div class = "past-search border" id = "past-search-buttons"></div>
-            </div>
+            <div class="col-12 col-md-3">
+                <div class = "row border" id = "search-history">
+                    <h2 class= "col-12" id = "search-history-title">Search History</h2>
+                    <div class = "col-12" id = "search-history-container"></div>
+                </div>
+                <div class = "row border" id = "search">
+                    <h2 class= "col-12" id = "search-title">Search</h2>
+                    <div class = "col-12" id = "search-container">
+                        <form class = "form-inline">
+                            <input class = "form-control" type = "text" id = "search-input" placeholder = "Enter City Name">
+                            <button class = "btn btn-primary" type = "submit" id = "search-button">Search</button>
+                        </form>
+                    </div>
+                </div>
             
+            </div>
             <div class="col-12 col-md-9">
-                <div class = "row border selected-city" id = "current-forecast">
-                    <div class = "col-12">
+                <div class = "row border" id = "current-weather">
+                    <div class = "col-12" id = "current-weather-container">
                         <h2 id="searched-city"></h2>
                         <div id = "current-weather-container" class = "list-group"></div>
                     </div>  
                 </div>
                 <div class = "row border" id = "five-day-forecast">
-                        <h2 class= "col-12" id = "forecast"></h2>
-                        <div class = "d-flex" id = "fiveday-container"></div>
+                    <div class = "col-12" id = "five-day-forecast-container">
+                        <h2 id="five-day-forecast-title">5 Day Forecast</h2>
+                        <div id = "five-day-forecast-container" class = "list-group"></div>
+                    </div>
                 </div>  
             </div>
         </div>
