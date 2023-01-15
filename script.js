@@ -12,7 +12,7 @@ var getCityWeather = function(city){
         var city = document.getElementById("city").value;
         
         // Call the weather API using fetch
-        fetch('https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=YOUR_API_KEY')
+        fetch('https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=cd6ebd3bf1014520af94c5286636bc87')
           .then(response => response.json())
           .then(data => {
             // Clear the current forecast
