@@ -7,71 +7,42 @@ var getCityWeather = function(city){
 
     fetch(apiURL)
     
-    .then(function(response){
-        response.json().then(function(data){
-            displayWeather(data, city);
-        });
-    });
-};
+    function getWeatherForecast() {
+        // Get the city input from the user
+        var city = document.getElementById("city").value;
+        
+        // Call the weather API using fetch
+        fetch('https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=YOUR_API_KEY')
+          .then(response => response.json())
+          .then(data => {
+            // Clear the current forecast
+            document.getElementById("forecast").innerHTML = "";
+            
+            // Loop through the forecast data and display the results
+            for (var i = 0; i < data.list.length; i++) {
+              var forecast = data.list[i];
+              var date = new Date(forecast.dt * 1000);
+              var day = date.toLocaleDateString();
+              var weather = forecast.weather[0].main;
+              var temp = forecast.main.temp;
+              var minTemp = forecast.main.temp_min;
+              var maxTemp = forecast.main.temp_max;
+              
+              // Add a new row to the forecast table
+              var table = document.getElementById("forecast");
+              var row = table.insertRow();
+              var dayCell = row.insertCell(0);
+              var weatherCell = row.insertCell(1);
+              var tempCell = row.insertCell(2);
+              var minTempCell = row.insertCell(3);
+              var maxTempCell = row.insertCell(4);
+              dayCell.innerHTML = day;
+              weatherCell.innerHTML = weather;
+              tempCell.innerHTML = temp;
+              minTempCell.innerHTML = minTemp;
+              maxTempCell.innerHTML = maxTemp;
+            }
+          });
+      }
 
-var formSubmitHandler = function(event){
-    event.preventDefault();
-    var city = cityInputEl.value.trim();
-
-    if(city){
-        getCityWeather(city);
-        cityInputEl.value = "";
-    } else {
-        alert("Please enter a city");
-    }
-}
-
-var saveSearch = function(){
-    
-    localStorage.setItem("cities", JSON.stringify(cities));
-};
-
-var displayWeather = function(weather, searchCity){
-    // clear old content
-    forecastContainerEl.textContent = "";
-    currentContainerEl.textContent = "";
-
-    // format date
-    var currentDate = moment().format("M/D/YYYY");
-
-    // create html content for current weather
-    var currentWeatherEl = document.createElement("div");
-    currentWeatherEl.classList = "card bg-primary text-light m-4";
-
-    var cardBodyEl = document.createElement("div");
-    cardBodyEl.classList = "card-body";
-
-    var cityEl = document.createElement("h3");
-    cityEl.classList = "card-title";
-    cityEl.textContent = searchCity + " (" + currentDate + ")";
-
-    var temperatureEl = document.createElement("p");
-    temperatureEl.classList = "card-text";
-    temperatureEl.textContent = "Temperature: " + weather.current.temp + " °F";
-
-    var humidityEl = document.createElement("p");
-    humidityEl.classList = "card-text";
-    humidityEl.textContent = "Humidity: " + weather.current.humidity + "%";
-
-    var windSpeedEl = document.createElement("p");
-    windSpeedEl.classList = "card-text";
-    windSpeedEl.textContent = "Wind Speed: " + weather.current.wind_speed + " MPH";
-
-    
-    // append to page
-    cityEl.appendChild(weatherIcon);
-    cardBodyEl.appendChild(cityEl);
-    cardBodyEl.appendChild(temperatureEl);
-    cardBodyEl.appendChild(humidityEl);
-    cardBodyEl.appendChild(windSpeedEl);
-    currentWeatherEl.appendChild(cardBodyEl);
-    currentContainerEl.appendChild(currentWeatherEl);
-
-    // call future forecast
-    getForecast(searchCity);
 }

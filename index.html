@@ -22,46 +22,24 @@
     </header>
     
     <main class="container-fluid">
-        <div class = "row">
-            
-            <div class="col-12 col-md-3">
-                <div class = "row border" id = "search-history">
-                    <h2 class= "col-12" id = "search-history-title">Search History</h2>
-                    <div class = "col-12" id = "search-history-container"></div>
-                </div>
-                <div class = "row border" id = "search">
-                    <h2 class= "col-12" id = "search-title">Search</h2>
-                    <div class = "col-12" id = "search-container">
-                        <form class = "form-inline">
-                            <input class = "form-control" type = "text" id = "search-input" placeholder = "Enter City Name">
-                            <button class = "btn btn-primary" type = "submit" id = "search-button">Search</button>
-                        </form>
-                    </div>
-                </div>
-            
-            </div>
-            <div class="col-12 col-md-9">
-                <div class = "row border" id = "current-weather">
-                    <div class = "col-12" id = "current-weather-container">
-                        <h2 id="searched-city"></h2>
-                        <div id = "current-weather-container" class = "list-group"></div>
-                    </div>  
-                </div>
-                <div class = "row border" id = "five-day-forecast">
-                    <div class = "col-12" id = "five-day-forecast-container">
-                        <h2 id="five-day-forecast-title">5 Day Forecast</h2>
-                        <div id = "five-day-forecast-container" class = "list-group"></div>
-                    </div>
-                </div>  
-            </div>
-        </div>
+        <form>
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city">
+            <button type="button" onclick="getWeatherForecast()">Get Forecast</button>
+          </form>
+          <table id="forecast">
+            <tr>
+              <th>Day</th>
+              <th>Weather</th>
+              <th>Temp</th>
+              <th>Min Temp</th>
+              <th>Max Temp</th>
+            </tr>
+          </table>
     </main>
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
    
     <script src="script.js"></script>
 
